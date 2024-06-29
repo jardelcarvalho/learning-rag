@@ -1,0 +1,4 @@
+1 - Implement the StreamLit UI
+2 - Load LLM Model locally
+3 - Embbedings and ChromaDB
+4 - Implement RAG
