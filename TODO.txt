@@ -1,4 +1,5 @@
-1 - Implement the StreamLit UI
-2 - Load LLM Model locally
-3 - Embbedings and ChromaDB
-4 - Implement RAG
+Implement the StreamLit UI (ok)
+Improve the prompt template (ref: https://docs.chainlit.io/integrations/langchain)
+Load LLM Model locally
+Embbedings and ChromaDB
+Implement RAG
