@@ -3,6 +3,7 @@ import os
 import chainlit as cl
 from langchain.chains.llm import LLMChain
 from langchain.prompts.prompt import PromptTemplate
+from langchain.prompts import ChatPromptTemplate
 from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
 from langchain_core.output_parsers import StrOutputParser
 from langchain.schema.runnable.config import RunnableConfig
@@ -25,16 +26,28 @@ model_id = 'gpt2-medium'
 #Loading a conversational model
 conv_model = HuggingFaceEndpoint(huggingfacehub_api_token=api_token, 
                                  repo_id=model_id,
-                                 temperature=.8,
+                                 temperature=.1,
                                  max_new_tokens=200)
 
 
 
-template = '''You are a helpfull AI assistant that makes stories by completing the query provided by the user
+# template = '''You are a helpful assistant that translates a English text to Portuguese.
 
-{query}
-'''
-prompt = PromptTemplate(template=template, input_variables=['query'])
+# {query}
+# '''
+# prompt = PromptTemplate(template=template, input_variables=['query'])
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            'system', 
+            "You are a helpful assistant that translates a English text to Portuguese."
+        ),
+        ('human', '{text}')
+    ]
+)
+
+
 
 
 
@@ -52,7 +65,7 @@ async def on_message(message):
     msg = cl.Message(content="")
 
     async for chunk in llm_chain.astream(
-        {'query': message.content},
+        {'text': message.content},
         config=RunnableConfig(callbacks=[cl.LangchainCallbackHandler()]),
     ):
         await msg.stream_token(chunk)
