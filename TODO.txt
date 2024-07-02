@@ -1,5 +1,6 @@
 Implement the StreamLit UI (ok)
-Improve the prompt template (ref: https://docs.chainlit.io/integrations/langchain)
+Improve the prompt template (ref: https://docs.chainlit.io/integrations/langchain) (ok) (but not works well)
+To-fix: Understand why the answers given by the chatbot make no sense
 Load LLM Model locally
 Embbedings and ChromaDB
 Implement RAG
