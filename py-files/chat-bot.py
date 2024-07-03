@@ -26,7 +26,7 @@ model_id = 'gpt2-medium'
 #Loading a conversational model
 conv_model = HuggingFaceEndpoint(huggingfacehub_api_token=api_token, 
                                  repo_id=model_id,
-                                 temperature=.1,
+                                 temperature=.8,
                                  max_new_tokens=200)
 
 
@@ -41,7 +41,7 @@ prompt = ChatPromptTemplate.from_messages(
     [
         (
             'system', 
-            "You are a helpful assistant that translates a English text to Portuguese."
+            "You are a helpful spell checker that checks the text providen by humans"
         ),
         ('human', '{text}')
     ]
