@@ -1,2 +1,6 @@
 https://www.youtube.com/watch?v=cKjh5ZOWqus
 https://dev.to/worldlinetech/open-source-ai-developing-a-hugging-face-chatbot-from-scratch-53m7
+
+LLM-Course: https://github.com/mlabonne/llm-course
+Another LLM-Course: Large-Language-Model-Notebooks-Course
+Datacamp course: https://www.datacamp.com/courses/large-language-models-llms-concepts
